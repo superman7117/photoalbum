@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Reset Your Password
+  form
+    .form-group
+      label(for='email') Email address
+      input#email.form-control(type='email', placeholder='Email')
+    button#resetBtn.btn.btn-default(type='submit') Reset
+    
+
+block scripts
+  script(src="/js/resetpass.js")

@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Raleway:500', rel='stylesheet', type='text/css')
+  body
+    #left
+      #logo
+      #title PhotoDrop
+      a(href='/') Home
+      
+      a(href='/register' class="registerBtn") Register
+      
+      a(href='/login' class="loginBtn") Login
+      
+      a(href='/users/logout' class="logoutBtn") Logout
+      
+      a(href='/users/changepass' class="resetpassBtn") Change Password
+              
+    block content
+    
+    script(src='/lib/firebase/firebase.js')
+    script(src='/lib/jquery/dist/jquery.min.js')
+
+    block scripts
+      
