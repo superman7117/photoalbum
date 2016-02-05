@@ -8,9 +8,10 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var albums = require('./routes/albums');
+var photos = require('./routes/photos');
 
 var app = express();
-var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/herokutest'
+var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/photoalbum'
 var mongoose = require('mongoose');
 mongoose.connect(mongoUrl, function(err) {
   console.log(err || `Connected to MongoDB: ${mongoUrl}`);
@@ -27,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/photos', photos)
 app.use('/albums', albums);
 app.use('/users', users);
 app.use('/', routes);

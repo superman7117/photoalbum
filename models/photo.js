@@ -9,7 +9,7 @@ var Photo;
 var photoSchema = new mongoose.Schema({
   uploadedAt: {type:Date, default:Date.now},
   photoName: {type:String},
-  photoUrl: {type: String}
+  photoUrl: {type: String},
   photoOwner: {type: mongoose.Schema.Types.ObjectId, ref: "Album"},
   description: {type:String},
 });

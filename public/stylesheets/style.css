@@ -2,8 +2,14 @@ body {
   font-family: 'Raleway', sans-serif;
   padding-left: 15vw;
   display: flex;
+  background-image: url('https://s3-us-west-1.amazonaws.com/ozanne-starter/e45ba520-cc41-11e5-ab82-69d6e6a52edb.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
+.userpage{
 
+}
 .index{
 
   padding-left: 2vw;

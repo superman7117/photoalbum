@@ -3,9 +3,10 @@ extends layout
 block content
   .container.userPage
     h1 PhotoDrop
-    form(action='/images', method='post', enctype='multipart/form-data')
-      input(type='text', id='input')
-      input(type='file', name='images', id='images', multiple=true)
+    form(action='/albums', method='post', enctype='multipart/form-data')
+      input(type='text', id='input', name='photoName')
+      input(type='file', name='images', id='images', multiple=false)
       button Submit
 
 block scripts
+  script(src="/js/album.js")

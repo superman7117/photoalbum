@@ -14,8 +14,8 @@ function loginUser(e) {
   var password = $password.val();
   $.post('/users/login', {email: email, password: password})
   .success(function(data) {
-    location.href = '/userpage';
-      $.get('/userpage')
+    location.href = '/albums';
+      $.get('/albums')
       .done()
   })
   .fail(function(err) {
