@@ -12,10 +12,11 @@ function loginUser(e) {
   e.preventDefault();
   var email = $email.val();
   var password = $password.val();
+  console.log(email, password);
   $.post('/users/login', {email: email, password: password})
   .success(function(data) {
-    location.href = '/albums';
-      $.get('/albums')
+    location.href = '/user';
+      $.get('/user')
       .done()
   })
   .fail(function(err) {

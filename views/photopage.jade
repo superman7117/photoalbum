@@ -1,6 +1,11 @@
-extends layout
+extends albumpage
 
-block content
-  .container
+block photopage
+  .photodrop
     h1 PhotoDrop
-    h1 It's a photo
+    form(action='/albums', method='post', enctype='multipart/form-data')
+      input(type='text', id='input', name='photoName', placeholder='New Photo Name')
+      input(type='file', name='images', id='images', multiple=false)
+      button Submit
+
+  .container.photoholder

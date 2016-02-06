@@ -8,6 +8,17 @@ var userSchema = new mongoose.Schema({
   firebaseId: {type:String},
   email: {type:String}
 });
+userSchema.statics.isLoggedIn = function(req, res, next){
+  var token = req.cookies.mytoken;
+  if(!token) return res.status(401).send({error: `Authentication failed: ${err}`})
+  try{
+    var payload = jwt.decode(token, JWT_SECRET);
+  }
+  catch(err){ return res.status(401).send({error: `Auth failed ${err}`})}
+  req.token = payload;
+  console.log("IN isLoggedIn", req.token);
+  next();
+}
 
 // instance method
 userSchema.methods.generateToken = function() {

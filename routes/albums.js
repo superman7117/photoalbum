@@ -6,6 +6,7 @@ var router = express.Router();
 var authMiddleware = require('../config/auth');
 var Photo = require('../models/photo')
 var User = require('../models/user');
+var Album = require('../models/album');
 
 var ref = new Firebase('https://ozannephotodrop.firebaseio.com/');
 
@@ -24,6 +25,14 @@ router.get('/', function(req, res, next) {
   res.render('albumpage');
 });
 
+router.get('/load', User.isLoggedIn, function(req,res,next){
+  console.log('req.token', req.token);
+  Album.find({albumOwner: req.token._id}, function(err, albumData){
+    if (err) return res.send("can't find album");
+    console.log("erherherer",albumData);
+    res.send(albumData);
+  })
+})
 router.post('/', upload.array('images'), function(req, res) {
   console.log('req.body', req.body);
   console.log('req.files:', req.files[0]);
@@ -46,8 +55,16 @@ router.post('/', upload.array('images'), function(req, res) {
       photo.photoName = req.body.photoName;
       photo.save(function(err, savedPhoto){
         if(err) return res.send(400, err);
-        res.render("albumpage");
+        res.render("photopage");
       })
     });
   })
+
+router.post('/newalbum', User.isLoggedIn, function(req,res){
+  console.log('req.body', req.body);
+  Album.create({name: req.body.albumName, albumOwner: req.token._id}, function(err, album){
+    if(err) return console.log(err);
+    res.render('albumpage')
+  })
+})
 module.exports = router;

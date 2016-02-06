@@ -10,6 +10,12 @@ var User = require('../models/user');
 
 var ref = new Firebase('https://ozannephotodrop.firebaseio.com/');
 
+router.get('/signed', function(req,res){
+  var token = req.cookies.mytoken;
+  if(!token) return res.send({token: false})
+  res.send({token: true})
+
+})
 router.post('/register', function(req, res, next) {
   ref.createUser(req.body, function(err, userData) {
     if(err) return res.status(400).send(err);
@@ -18,8 +24,6 @@ router.post('/register', function(req, res, next) {
     console.log(email, firebaseId);
  User.create({firebaseId: firebaseId, email: email}, function(err, newUser) {
    if(err) return res.status(400).send(err);
-
-   console.log("IM IN");
       res.send();
     });
   });
@@ -27,9 +31,11 @@ router.post('/register', function(req, res, next) {
 
 router.post('/login', function(req, res, next) {
   ref.authWithPassword(req.body, function(err, authData) {
+    console.log("authData",authData);
     if(err) return res.status(400).send(err);
-    User.findOne({uid: authData.uid}, function(err, user) {
-      var token = User.generateToken();
+    User.findOne({firebaseId: authData.uid}, function(err, user) {
+      console.log('user', user);
+      var token = user.generateToken();
       res.cookie('mytoken', token).send();
     });
   });
@@ -101,5 +107,8 @@ router.get('/logout', function(req, res, next) {
   res.clearCookie('mytoken').redirect('/');
 });
 
+router.get('/', function(req, res, next) {
+  res.render('userpage');
+});
 
 module.exports = router;

@@ -1,17 +1,21 @@
 body {
   font-family: 'Raleway', sans-serif;
-  padding-left: 15vw;
   display: flex;
-  background-image: url('https://s3-us-west-1.amazonaws.com/ozanne-starter/e45ba520-cc41-11e5-ab82-69d6e6a52edb.jpg');
+  background-image: url('http://scan.di.uoa.gr/wp-content/uploads/2014/07/light-blue-background-1.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  min-height: 97.75vh;
 }
-.userpage{
-
+.passcontrol{
+  margin: 10vw 0 0 40vw;
+}
+.photoholder{
+  overflow: scroll;
+  margin-left: 50vw;
+  margin-top:10vw;
 }
 .index{
-
   padding-left: 2vw;
   font-size: 4vw;
   color: dodgerblue;
@@ -30,6 +34,7 @@ body {
   -1px 1px 0 black,
   1px 1px 0 black;
 }
+
 a {
   width: 15vw;
   height: 3vw;
@@ -39,12 +44,12 @@ a {
   text-decoration: none;
   background-color: tan;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
 }
-#left {
-
+#left{
+  border-right: 1px solid black;
   width: 15vw;
   position: absolute;
   top: 0;
@@ -56,6 +61,59 @@ a {
   justify-content: flex-start;
   align-items: center;
 }
+.userPage {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  margin-left: 15vw;
+  width: 15vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: peru;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+.albumpage {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  margin-left: 30vw;
+  width: 15vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: peru;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+.photodrop {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  margin-left: 45.1vw;
+  width: 55vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#userform{
+  max-width: 13vw;
+}
+#input, #images{
+  width: 18vw;
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+}
 
 li {
 
@@ -65,7 +123,37 @@ li {
   margin-top: 2vw;
   height: 10vw;
   width: 10vw;
+  background-image: url('http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/blue-jelly-icons-sports-hobbies/043313-blue-jelly-icon-sports-hobbies-parachute.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+}
+#avatar{
+  margin-top: 2vw;
+  height: 10vw;
+  width: 10vw;
+  background-image: url('http://psdexport.com/storage/avatars/default.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+}
+#albumLogo{
+  margin-top: 2vw;
+  height: 10vw;
+  width: 10vw;
   background-image: url('https://lh4.ggpht.com/FUWsXiCVl9xt1bxfdtZk7QgMQpbui_uxv7qONujjFMrf-B-aU0N4gPJ9qY5hoBsoTuo=w300');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#title{
+  font-size: 2vw;
+}
+.showImage{
+  width: 10vw;
+  height: 10vw;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

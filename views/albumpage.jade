@@ -1,12 +1,14 @@
-extends layout
+extends userpage
 
-block content
-  .container.userPage
-    h1 PhotoDrop
-    form(action='/albums', method='post', enctype='multipart/form-data')
-      input(type='text', id='input', name='photoName')
-      input(type='file', name='images', id='images', multiple=false)
-      button Submit
-
-block scripts
+block album
+  .container.albumpage
+    #albumLogo
+    #title AlbumDrop
+    .dude
+    //- each album in albums
+    //-   a(id=album._id href='/photos')= album.name
+  block photopage
+  
+block scriptTwo
   script(src="/js/album.js")
+  block scriptThree
